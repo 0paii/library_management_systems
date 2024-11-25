@@ -27,6 +27,8 @@ class Book:
         :param kwargs: словарь, содержащий поля, по которым производится поиск
         :return: bool, True если книга была найдена, False если не найдена
         """
+        if all(value is None for value in kwargs.values()):  # Проверка на пустой словарь
+            return False
         result = True
         for key, value in kwargs.items():
             if value is not None:  # Проверка на пустоту значения
